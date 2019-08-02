@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <style>
+    .striped {
+      color: white;
+      background-color: grey;
+    }
+  </style>
+  <script>
+      var app = angular.module("myApp", []);
+      app.controller("myCtrl", function($scope) {
+        $scope.records =[ 
+                          {"Name": "Suhit","Country": "India"},
+                          {"Name": "Rathin","Country": "Canada"},
+                          {"Name": "Hardip","Country": "USA"},
+                          {"Name": "Smit","Country": "AUS"}
+                        ];
+        $scope.cars = [ 
+                        {"model": "Ford"}, 
+                        {"model": "Honda"}, 
+                        {"model": "Volvo"},
+                        {"model": "Hundai"}
+                      ];
+      });
+  </script>
+
+  <body ng-app="myApp">
+    <center>
+      
+      <table ng-controller="myCtrl">
+        <tr ng-repeat="x in records" ng-class-odd="'striped'">
+          <td>{{x.Name}}</td>
+          <td>{{x.Country}}</td>
+        </tr>
+      </table>
+    
+      <div ng-controller="myCtrl">
+      <h4>Select a car:</h4>
+      <select ng-model="selectedCar">
+        <option ng-repeat="x in cars" value="{{x.model}}">{{x.model}}</option>
+      </select>
+      <h4>You car is: {{selectedCar}}</h4>
+      </div>
+      
+      
+      
+    </center>
+  </body>
+
+</html>
