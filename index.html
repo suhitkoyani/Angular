@@ -43,7 +43,18 @@
       <h4>You car is: {{selectedCar}}</h4>
       </div>
       
-      
+      In bin:<input type="checkbox" ng-model="myVar" value="hide">
+      <div ng-hide="myVar">
+        <page ng-click="count=count+1" ng-init="count=0">OK</page>
+        <p>You enter the 'OK', Howmany times?<br>Answer:<strong>{{count}}</strong></p>
+        
+        <input ng-focus="focus=focus+1" ng-copy="copied=true" ng-init="focus=0; copied=false; value='copy me'" ng-model="value">
+        <br>Copy:<strong> {{copied}}</strong> and Focus={{focus}}<br><br>
+        
+        <data ng-dblclick="event=event+1" ng-cut="cut=true" ng-init="event=0; cut=false; value='cut'">Data</data><br>
+        Cut: <strong>{{cut}}</strong> and Double click=<strong>{{event}}</strong>
+        
+      </div>
       
     </center>
   </body>
